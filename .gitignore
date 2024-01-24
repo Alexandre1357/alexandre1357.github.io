@@ -1,3 +1,8 @@
+# Ignore any files generated from markdown files.
+_site
+GemFile
+GemFile.lock
+
 # Ignore files made by obsidian
 .obsidian
 .trash

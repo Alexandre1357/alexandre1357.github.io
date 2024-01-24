@@ -1,2 +1,4 @@
-### Article content here
-
+I recently had the misfortune of implementing parallel prefix sum on the GPU. It is a rather complicated algorithm, at least at first look, especially for someone who it rather new to GPU programming such as myself. I had to look through a couple articles and go over the algorithm in my head a few time before getting it working. Those articles I read were helpful and I wouldn't have gotten it working without them. But they mostly focused on the theory and as a beginner I was more looking for a basic understanding of the algorithm and a low level look at its implementation. This is what I hope to give in this article.
+## What is Parallel Prefix Sum
+Prefix sum on its own is rather simple. You have an array of numbers and you want the number at each index to be the sum of all the numbers in the previous indices. 
+![](assets/PrefixSum.png)
