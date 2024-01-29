@@ -246,11 +246,13 @@ void main()
 This is an exact copy of prefix sum I showed earlier in the article. The only difference is the name and binding of the buffer. The last thing to do is to add the group sums back to the original array. You should be able to write that shader on your own as it is quite simple compared to the rest of the algorithm. 
 
 ## Applications of Prefix Sum
-The application I was using this for was to keep memory contiguous on the GPU. I was implementing a GPU accelerated particle system and so all the data for the particles was on the GPU. If I wanted to kill one or more particles and remove them from the list, I couldn't do something simple like replacing them with live particles from the back of the list. So, I had to implement an algorithm called vote scan compact. First it votes on which particles are alive with a one and which are dead with a zero. That data is copied over to the scan buffer and prefix sum is ran on the buffer. The resulting list contains the new indices for each particle. For each index the particle is copied to its new index in the scan array if it was marked alive in the vote buffer.
+I implemented this algorithm for a project that I was working on as a second year programming student at BUas. The project was to make a GPU accelerated particle system. All the memory for the particles had to be on the GPU and because of how shaders and rendering work the memory had to be contiguous. If I wanted to kill one or more particles and remove them from the list, I couldn't do something simple like replacing them with live particles from the back of the list. So, I had to implement an algorithm called vote scan compact. First it votes on which particles are alive with a one and which are dead with a zero. That data is copied over to the scan buffer and prefix sum is ran on the buffer. The resulting list contains the new indices for each particle. For each index the particle is copied to its new index in the scan array if it was marked alive in the vote buffer.
 ![](assets/VoteScanCompact.png)
 Part of the reason I said "misfortunate" at the beginning of this article is because there turned out to be a simpler solution in my situation. The particles in my system have a life time that is randomly picked in a range and nothing else determines when they die. This means that I can just estimate how many were left alive and only update and render that many particles. 
 ## Conclusion 
 Parallel prefix sum can be a difficult algorithm to implement. If you are somewhat new to GPU programming it is even harder. Although parallel prefix sum is useful and needed in certain situations it is also complex. If you can think of a simpler solution that works use that instead. This article was only a look at the basics. There is more to be done to optimize the algorithm and make it work on an even larger number of elements. But I hope this article helped you understand how to implement the basic version. If it didn't or you want more there are some resources down below. Thanks for reading.
+
+
 ## Resources
 Here are some articles that I used to research parallel prefix sum. They also include some advanced optimizations that I didn't go over. There are plenty of more articles on the topic if you simply search 'parallel prefix sum'.
 - [https://developer.nvidia.com/gpugems/gpugems3/part-vi-gpu-computing/chapter-39-parallel-prefix-sum-scan-cuda](https://developer.nvidia.com/gpugems/gpugems3/part-vi-gpu-computing/chapter-39-parallel-prefix-sum-scan-cuda)
@@ -261,3 +263,9 @@ Paper by Guy Blelloch on parallel prefix sum.
 
 This video is where I first heard about parallel prefix sum. It doesn't include an explanation of the algorithm or how to implement it but it does give another use case and a link to source code with the implemented algorithm.
 - [https://www.youtube.com/watch?v=jw00MbIJcrk&t=430s](https://www.youtube.com/watch?v=jw00MbIJcrk&t=430s)
+
+&emsp;
+
+![](assets/BUas-Logo.png)
+
+&emsp;
