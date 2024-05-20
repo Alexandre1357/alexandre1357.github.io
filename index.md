@@ -4,7 +4,7 @@ title: Alex Vreeland
 ---
 # Previous Projects
 
-## GPU Accelerated Particle System
+## [GPU Accelerated Particle System](GPU Accelerated Particle System)
 > Year 2 Student Project / Solo Programmer / 8 weeks
 
 ![Fireworks](assets/fireworks.gif)\
