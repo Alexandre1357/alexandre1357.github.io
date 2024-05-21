@@ -8,7 +8,7 @@ title: Alex Vreeland
 > Year 2 Student Project / Solo Programmer / 8 weeks
 
 ![Fireworks](assets/fireworks.gif)\
-In this project all the particles are stored and updated entirely on the GPU. I learned a lot about how to wrote code and implement algorithms for compute shaders. I even wrote an article on how to implement [parralel prefix sum](/2024/04/12/parralel-prefix-sum.html).
+In this project all the particles are stored and updated entirely on the GPU. I learned a lot about how to wrote code and implement algorithms for compute shaders. I even wrote an article on how to implement [parallel prefix sum](/2024/04/12/parallel-prefix-sum).
 
 ## Nature Sim Engine
 ### procedurally generated nature scene
